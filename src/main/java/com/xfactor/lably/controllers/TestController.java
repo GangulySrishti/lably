@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.websocket.server.PathParam;
-
+import com.xfactor.lably.entity.Admin;
 import com.xfactor.lably.entity.Lab;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,18 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import antlr.collections.List;
 
 @RestController
 @RequestMapping("/test")
 public class TestController {
 
     ArrayList<Lab> labs = new ArrayList<>();
+    ArrayList<Admin> admins = new ArrayList<>();
 
     // @RequestMapping(method = RequestMethod.GET)
     @GetMapping
@@ -70,6 +66,37 @@ public class TestController {
         lab.setName(name);
         labs.add(lab);
         return lab;
+    }
+
+    @GetMapping("/getAdmins")
+    public ArrayList<Admin> getAdmins() {
+        return admins;
+    }
+
+    @PostMapping("/addAdmins")
+    public Admin addAdmins(@RequestBody Admin t) {
+        admins.add(t);
+        return t;
+    }
+
+    @GetMapping("/getAdminName")
+    public Admin getAdminName(@RequestParam String un){
+        for(Admin a: admins){
+            if(a.getUsername().equalsIgnoreCase(un)){
+                return a;
+            }
+        }
+        return null;
+    }
+
+    @GetMapping("/getLabName")
+    public Lab getLabName(@RequestParam String lab){
+        for(Lab a: labs){
+            if(a.getName().equalsIgnoreCase(lab)){
+                return a;
+            }
+        }
+        return null;
     }
 
     // // http://localhost:8080/test/hello/xfactor
