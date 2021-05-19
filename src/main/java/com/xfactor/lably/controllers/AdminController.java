@@ -41,7 +41,7 @@ public class AdminController {
     }
 
     @GetMapping("/getAdminUserNameAndPassword")
-    public Admin getAdminName(@RequestParam String un, @RequestParam String pwd){
+    public Admin getAdminNameAndPassword(@RequestParam String un, @RequestParam String pwd){
         Admin admin = adminrepo.findByUsernameAndPassword(un, pwd);
         return admin;
     }
@@ -61,11 +61,5 @@ public class AdminController {
     public void deleteAdminbyUsername(@RequestParam String un){
         Admin ad = adminrepo.findByUsername(un);
         adminrepo.delete(ad);
-    }
-
-    @GetMapping("/deleteLabbyName")
-    public void deleteLabbyName(@RequestParam String name){
-        Lab l = labrepo.findByName(name);
-        labrepo.delete(l);
     }
 }
