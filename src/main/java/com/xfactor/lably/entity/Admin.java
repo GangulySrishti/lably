@@ -15,6 +15,7 @@ public class Admin {
     private String name;
     private String username;
     private String password;
+    private String dept;
     public String getName() {
         return name;
     }
@@ -39,5 +40,10 @@ public class Admin {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+    public String getDept() {
+        return dept;
+    }
 }
