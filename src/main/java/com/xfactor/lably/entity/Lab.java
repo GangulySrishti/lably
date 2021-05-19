@@ -11,15 +11,15 @@ public class Lab {
 
     @Id
     @GeneratedValue
-    private String Id;
+    private Long Id;
     private String name;
     private String phone;
     private String address;
     private String pincode;
-    public String getId() {
+    public Long getId() {
         return Id;
     }
-    public void setId(String id) {
+    public void setId(Long id) {
         Id = id;
     }
     public String getName() {
