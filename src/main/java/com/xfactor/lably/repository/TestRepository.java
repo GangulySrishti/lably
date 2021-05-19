@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TestRepository extends JpaRepository<Tests, Long>{
     
-    Test findByName(String name);
+    Tests findByName(String name);
     List<Tests> findByPrice(String price);
     
 }

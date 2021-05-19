@@ -41,8 +41,8 @@ public class LabController {
     }
 
     @GetMapping("/getLabAddressAndPincode")
-    public Lab getLabAddressAndPincode(@RequestParam String address, @RequestParam String pincode){
-       Lab l = labrepo.findByAddressAndPincode(address, pincode);
+    public List<Lab> getLabAddressAndPincode(@RequestParam String address, @RequestParam String pincode){
+       List<Lab> l = labrepo.findByAddressAndPincode(address, pincode);
        return l;
     }
 
@@ -53,13 +53,13 @@ public class LabController {
     }
 
     @GetMapping("/deleteLabbyId")
-    public deleteLabbyId(@RequestParam Long id){
+    public void deleteLabbyId(@RequestParam Long id){
         labrepo.deleteById(id);
     }
 
     @GetMapping("/deleteLabbyName")
     public void deleteLabbyName(@RequestParam String name){
         Lab l = labrepo.findByName(name);
-        labrepo.delete(name);
+        labrepo.delete(l);
     }
 }

@@ -38,26 +38,20 @@ public class CustomerController {
         return c;
     }
 
-    @GetMapping("/getCustomerAgeAndGender")
-    public Customer getCustomerAgeAndGender(@RequestParam String age, @RequestParam String gender){
-       Customer c = customerRepository.findByAgeAndGender(age, gender);
-       return c;
-    }
-
     @GetMapping("/getListbyAge")
-    public List<Customer> getListbyPincode(@RequestParam String age){
+    public List<Customer> getListbyAge(@RequestParam String age){
        List<Customer> c = customerRepository.getListbyAge(age);
        return c;
     }
 
     @GetMapping("/deleteCustomerbyId")
-    public deleteCustomerbyId(@RequestParam Long id){
+    public void deleteCustomerbyId(@RequestParam Long id){
         customerRepository.deleteById(id);
     }
 
     @GetMapping("/deleteCustomerbyName")
     public void deleteCustomerbyName(@RequestParam String name){
-        Customer l = customerRepository.findByName(name);
-        customerRepository.delete(name);
+        Customer c = customerRepository.findByName(name);
+        customerRepository.delete(c);
     }
 }
