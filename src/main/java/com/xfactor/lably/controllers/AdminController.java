@@ -62,4 +62,10 @@ public class AdminController {
         Admin ad = adminrepo.findByUsername(un);
         adminrepo.delete(ad);
     }
+
+    @GetMapping("/deleteLabbyName")
+    public void deleteLabbyName(@RequestParam String name){
+        Lab l = labrepo.findByName(name);
+        labrepo.delete(l);
+    }
 }
