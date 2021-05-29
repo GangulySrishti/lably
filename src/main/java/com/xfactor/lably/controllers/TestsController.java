@@ -2,9 +2,7 @@ package com.xfactor.lably.controllers;
 
 import java.util.List;
 
-import com.xfactor.lably.entity.Admin;
 import com.xfactor.lably.entity.Tests;
-import com.xfactor.lably.repository.AdminRepository;
 import com.xfactor.lably.repository.TestRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

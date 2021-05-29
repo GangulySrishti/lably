@@ -2,7 +2,6 @@ package com.xfactor.lably.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.xfactor.lably.entity.Lab;
